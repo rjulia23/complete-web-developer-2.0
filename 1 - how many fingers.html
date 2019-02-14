@@ -1,0 +1,45 @@
+<head>
+	<title>how many fingers game</title>
+	<style type="text/css">
+		button, h1, input{
+			font-size:50px;
+			margin:20px;
+			padding:50px;
+		}
+		button{
+			background-color:#f98734;
+		}
+		input{
+			background-color:#feee94;
+			font-size:100px;
+			width:900px;
+		}
+		h1{
+			font-size:100px;
+		}
+	</style>
+</head>
+<body>
+	<h1>how many fingers am I holding up?</h1>
+	<form><input type="text" value="guess" id="guess" /></form>
+	<button id="button">GUESS</button>
+	<h1 id="answer"> </h1>
+	
+	<script type = "text/javascript">
+		var number=Math.floor(Math.random() * 5)+1 ;
+	
+	//document.getElementById("guess").value
+		document.getElementById("button").onclick= function(){
+			if(number==document.getElementById("guess").value){
+				document.getElementById("answer").innerHTML="CORRECT";
+				document.getElementById("guess").style.backgroundColor="green";
+			}
+			else{
+				document.getElementById("answer").innerHTML="nope";
+				document.getElementById("guess").style.backgroundColor="darkred";
+			}
+			
+			number=Math.floor(Math.random() * 5)+1;
+		}
+	</script>
+</body>

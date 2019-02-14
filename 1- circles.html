@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+ <head>
+ <title>Javascript</title>
+ <style>
+     #circle1, #circle2, #circle3{
+        width: 300px;
+        height:300px;
+        border-radius: 200px;
+        float: left;
+     }
+     #circle1{
+                 background-color: burlywood;
+     }
+     #circle2{
+                 background-color: powderblue;
+     }
+     #circle3{
+                 background-color: rosybrown;
+     }
+
+ </style>
+ </head>
+
+ <body>
+     <p id="circle1"></p>
+     <p id="circle2"></p>
+     <p id="circle3"></p>
+     
+ <script type="text/javascript">
+     document.getElementById("circle1").onclick = function(){
+        document.getElementById("circle1").style.display = "none";
+     };
+     document.getElementById("circle2").onclick = function(){
+        document.getElementById("circle2").style.display = "none";
+     };
+     document.getElementById("circle3").onclick = function(){
+        document.getElementById("circle3").style.display = "none";
+     };
+</script>
+ </body>
+</html>
