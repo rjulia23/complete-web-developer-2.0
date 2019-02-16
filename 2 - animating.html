@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+ <head>
+ <title>jQuery</title>
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+ <style>
+     #circle{
+         width:300px;
+         height:300px;
+         background-color: rosybrown;
+         margin: 30px;
+         float:left;
+         border-radius: 300px;
+     }
+ </style>
+ </head>
+
+ <body>
+     <div id="circle"></div>
+
+ <script type="text/javascript">
+     $("#circle").click(function(){
+         if($(this).css("width")=="300px"){
+        $(this).animate({
+            width:"1000px",
+            height:"900px",
+            margin:"300px",
+            backgroundColor: "hsl(200,50%,80%)"
+        },2000, function(){
+            $("#circle").css("background-color", "hsl(" + Math.floor(Math.random()*360) + ",50%,80%)");
+        });
+         }else{
+            $(this).animate({
+            width:"300px",
+            height:"300px",
+            margin:"000px",
+            backgroundColor: "hsl(" + Math.floor(Math.random()*360) + ",50%,80%)"
+        },1000, function(){
+            $("#circle").css("background-color", "hsl(" + Math.floor(Math.random()*360) + ",50%,80%)");
+        }); 
+         }
+     });
+   
+</script>
+ </body>
+</html>

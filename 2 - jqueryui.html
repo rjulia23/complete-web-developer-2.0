@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+	<head>
+	<title>Learning jQuery</title>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+	<style type="text/css">
+	#square{
+		width:200px;
+		height:200px;
+		background-color:green;
+		font-size:20px;
+		color:white;
+		padding:20px;
+		text-align:center;
+		}
+	#target{
+		width:400px;
+		height:400px;
+		background-color:yellow;
+		}
+	</style>
+
+	</head>
+
+	<body>
+
+		<div id="square">drag me around</div>
+		<div id="target"></div>
+
+		<script>
+			$("#square").resizable();
+			$("#square").draggable();
+			$("#target").droppable({
+				
+				out: function(ui,event){
+					$("#square").css("background-color","orange");
+					$(this).css("background-color","fuchsia");
+				},
+				drop: function(ui,event){
+					$("#square").css("background-color","blue");
+					$(this).css("background-color","pink");
+				},
+				over: function(ui,event){
+					$("#square").css("background-color","yellow");
+					$(this).css("background-color","purple");
+				},
+				activate: function(ui,event){
+					$("#square").css("background-color","aqua");
+					$(this).css("background-color","black");
+				},
+				create: function(ui,event){
+					$("#square").css("background-color","red");
+					$(this).css("background-color","black");
+				}
+			});
+		</script>
+
+
+
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+ <head>
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>jQuery sign up form</title>
+<link href="jquery-ui/jquery-ui.css" rel="stylesheet">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" crossorigin="anonymous">
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+ <style> 
+  #draggable { 
+      width: 150px; 
+      height: 150px; 
+  }
+    #containment-wrapper { 
+        width: 45%; 
+        height:550px; 
+        border:2px solid #ccc; 
+        padding: 0px; 
+    }
+    img{
+        width: 100%;
+        height:100%;
+    }
+    
+    #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+
+ </style>
+ </head>
+ <body>   
+     <div id="containment-wrapper">
+         <div id="draggable" class="ui-widget-content"><img src="https://previews.123rf.com/images/antimartina/antimartina1506/antimartina150600009/40831305-vector-illustration-of-a-green-cartoon-frog-isolated-on-white.jpg"></div>
+    
+        <div id="droppable" class="ui-widget-header"><p>Drop here</p></div>
+        
+     </div>
+     
+    <script src="jquery-ui/jquery-ui.js"></script>
+ 
+    <script type="text/javascript">
+        $( "#draggable" ).draggable({ containment: "#containment-wrapper", scroll: false });
+        
+        $( "#draggable" ).resizable({
+            containment: "#containment-wrapper", 
+            aspectRatio: 1 / 1,
+            resize: function(event,ui){
+                if($( "#draggable" ).css("width")>"300"){}
+            }
+        });
+        
+        $( "#droppable" ).droppable({
+            drop: function( event, ui ) {
+                $( "#draggable" ).css("opacity",".3");
+            },
+            over: function(event,ui){
+                $( "#draggable img" ).attr("src","https://image.shutterstock.com/image-vector/cartoon-frog-character-260nw-692594620.jpg");
+            },
+            out: function( event, ui ) {
+                $( "#draggable" ).css("opacity","1");
+                $( "#draggable img" ).attr("src","https://previews.123rf.com/images/antimartina/antimartina1506/antimartina150600009/40831305-vector-illustration-of-a-green-cartoon-frog-isolated-on-white.jpg");
+            }
+        });
+        
+    </script>
+
+ 
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"  crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+</body>
+</html>

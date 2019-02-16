@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Code Player</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+		
+		<style type="text/css" id="cssSheet">
+			body{
+				margin:0px;
+				font-family:arial;
+			}
+			h2{
+				font-weight:bold;
+				font-family:arial;
+				line-height:0;
+				float:left;
+				padding-top:9px;
+			}
+			#menu{
+				margin:0;
+				padding:5px;
+				height:60px;
+				background-color:#d3d3d3;
+			}
+			#toggles{
+				margin: 7px auto 0 auto;
+				width:216.1px;
+				list-style:none;
+				border: 1px solid grey;
+				height:38px;
+				padding:0;
+				position:relative;
+			}
+			#toggles li{
+				float:left;
+				padding:10px 7px;
+				border-right: 1px solid grey;
+			}
+			#run{
+				float:right;
+				background-color:#b2b2b2;
+				font-size:1em;
+				font-weight:bold;
+				border-radius:10px;
+				padding:10px;
+				margin:9px;
+				border-style: solid;
+				border-width: 3px;
+			}
+			#run:hover{
+				background-color:#d3d3d3;
+			}
+			#run:focus{
+				background-color:grey;
+			}
+			.codeContainer textarea{
+				float:left;
+				width:100%;
+				height:100%;
+				background-color:white;
+				font-family:monotype;
+				font-size:12px;
+				box-sizing:border-box;
+				border:none;
+				border-right:1px solid grey;
+			}
+			.codeContainer iframe{
+				float:left;
+				width:100%;
+				height:100%;
+				background-color:white;
+				border:none;
+			}
+			.codeContainer{
+				float:left;
+				width:100%;
+				height:100%;
+				position:relative;
+			}
+			#boxLabel{
+				float:right;
+				position:absolute;
+				border-width:1px;
+				border-style: solid;
+				border-radius:3px;
+				top:10px;
+				right:10px;
+				padding:2px;
+				color:grey;
+			}
+			.clear{
+				clear:both;
+			}
+			.toggle:active{
+				background-color:grey;
+			}
+			.toggle:visited{
+				background-color:grey;
+			}
+			.selected{
+				background-color:grey;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+		<div id="menu">
+			<h2>CodePlayer</h2>
+			<button id="run">Run</button>
+			<ul id="toggles">
+				<li class="toggle selected" name="html" id="htmlToggle">HTML</li>
+				<li class="toggle" name="css" id="cssToggle">CSS</li>
+				<li class="toggle" name="js" id="jsToggle">JS</li>
+				<li class="toggle" name="result" style=" border:none" id="resultToggle">RESULT</li>
+			</ul>
+			
+		</div>
+		
+		<div class="clear"></div>
+		
+		<div class="codeContainer" id="htmlContainer">
+			<div id="boxLabel">HTML</div>
+			<textarea name="textBox" id="htmlBox"><div id="demo" onclick="myFunction()"></div></textarea>
+		</div>
+		<div class="codeContainer" id="cssContainer" style="display:none">
+			<div id="boxLabel">CSS</div>
+			<textarea name="textBox" id="cssBox">#demo{margin:20px;width:100px;height:100px;background-color:blue;}</textarea>
+		</div>
+		<div class="codeContainer" id="jsContainer" style="display:none">
+			<div id="boxLabel">JS</div>
+			<textarea name="textBox" id="jsBox">
+function myFunction() {document.getElementById("demo").style.backgroundColor = "red";}</textarea>
+		</div>
+		<div class="codeContainer" id="resultContainer" style="display:none">
+			<div id="boxLabel">result</div>
+			<iframe id="resultBox"></iframe>
+		</div>
+		
+		
+		<script>
+			var windowHeight=$(window).height();
+			var menuBarHeight=$("#menu").height();
+			$(".codeContainer").height(windowHeight-menuBarHeight);
+			
+			$(".toggle").click(function(){
+				//$("#cssContainer").css("display","none");
+				var id=$(this).attr("name");
+				$("#"+id+"Container").toggle();
+				$(this).toggleClass("selected");
+				var howManyBoxes=$(".codeContainer").filter(function(){
+					return($(this).css("display")!="none");
+				}).length;
+				var width=100/howManyBoxes;
+				$(".codeContainer").css("width",width+"%");
+				
+			});
+		
+			$("#run").click(function(){
+				//alert($("#cssSheet").html());
+				$("iframe").contents().find("html").html('<style>'+ $("#cssBox").val() + '</style>' + $("#htmlBox").val());
+				
+				document.getElementById("resultBox").contentWindow.eval($("#jsBox").val())
+			});
+		
+		/*
+		trash
+		
+			<textarea name="textBox" id="textBox2"></textarea>
+		<textarea name="textBox" ></textarea>
+		<iframe id="result"></iframe>
+		</div>
+		
+			<input type="text" class="textBox"><p id="boxLabel">HTML</p></input>
+			<input type="text" class="textBox"><p id="boxLabel">CSS</p></input>
+			<input type="text" class="textBox"><p id="boxLabel">JS</p></input>
+			<input type="text" class="textBox"><p id="boxLabel">RESULT</p></input>
+			
+		*/
+		</script>
+		
+	</body>
+</html>
