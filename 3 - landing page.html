@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+		.navbar{
+			background-color:#c1989c;
+			color:white;
+		}
+		.fullHeight{
+			background-color:rgba(230,200,200,.9);
+			width:100%;
+			height:100%;
+		}
+		.firstContainer{
+			padding-top:100px;
+			background-color:rgba(255,255,255,.9);
+			width:100%;
+			height:100%;
+			font-weight:strong;
+			text-align:center;
+		}
+	</style>
+    <title>JulesDiaries Podcast</title>
+  </head>
+  
+  <body data-spy="scroll" data-target=".navbar-collapse">
+  
+  <!-- NAVIGATION -->
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top menuBar">
+		<div class="container">
+			<a href="#" class="navbar-brand">JulesDiaries Podcast</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="nav-item"><a href="#area1" class="nav-link">the blog</a></li>
+					<li class="nav-item"><a href="#area2" class="nav-link">extra content</a></li>
+					<li class="nav-item">
+					<a href="" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+						subscribe
+					</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+  
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+				 follow along for updates on the podcast
+			<form class="form-inline">
+			<div class="form-group" >
+				<label for="email">email</label>
+				<input name="email" class="form-control" type="text" placeholder="email" />
+			</div>
+				<div class="form-group">
+					<label for="password">password</label>
+					<input name="password" class="form-control" type="password" placeholder="password" />
+				</div>
+		</form>	
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary" type="submit" value=" sign in" >Save changes</button>
+      </div>
+	  	
+    </div>
+  </div>
+</div>
+
+    <!-- JUMBOTRON -->
+	<div class="jumbotron jumbotron-fluid fullHeight ">
+		<div class="container firstContainer">
+			<h1 class="display-4">I care about making your dreams a reality</h1>
+			<hr class="my-4">
+			<p class="lead">a podcast for people who want to create their dream life</p>
+		</div>
+	</div>
+
+	    <!-- JUMBOTRON -->
+	<div class="jumbotron jumbotron-fluid fullHeight" id="area1">
+		<div class="container firstContainer">
+			<h1 class="display-4">The Blog</h1>
+			<hr class="my-4">
+			<p class="lead">a podcast for people who want to create their dream life</p>
+		</div>
+	</div>
+	
+	    <!-- JUMBOTRON -->
+	<div class="jumbotron jumbotron-fluid fullHeight" id="area2">
+		<div class="container firstContainer">
+			<h1 class="display-4">More content</h1>
+			<hr class="my-4">
+			<p class="lead">a podcast for people who want to create their dream life</p>
+		</div>
+	</div>
+    <!-- <h1>JulesDiaries Podcast</h1> -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+		
+	</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ <script>
+	$(".fullHeight").css("height",$(window).height());
+ </script>
+ </body>
+</html>
