@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>color drop</title> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <style>
+        .space, .ball{
+          width:50px;
+          height: 50px;
+          border-radius:30px;
+          margin:30px;
+          float:left;
+        }
+        .space{
+          border:black dashed 1px;
+        }
+        #balls, #spaces{
+          clear: left;
+        }
+        #red{
+          border:darkred solid 3px;
+          background-color:red;
+        }
+        #green{
+          border:darkgreen solid 3px;
+          background-color:green;
+        }
+        #blue{
+          border:darkblue solid 3px;
+          background-color:blue;
+        }
+        #pink{
+          border:plum solid 3px;
+          background-color:pink;
+        }        
+    </style>
+</head>
+    <body>
+    <div class="container">
+        <div id="balls">
+          <div id="red" class="ball"></div>
+          <div id="pink" class="ball"></div>
+          <div id="green" class="ball"></div>
+          <div id="blue" class="ball"></div>
+        </div>
+        <div id="spaces">
+          <div class="space"></div>
+          <div class="space"></div>
+          <div class="space"></div>
+          <div class="space"></div>
+        </div>
+    </div>
+    
+        
+    <script type="text/javascript">     
+        $( ".ball" ).draggable({ 
+          stack: ".ball", 
+          revert: "invalid",
+          snap: ".space", 
+          snapTolerance: 40,
+          snapMode: "inner",
+          //containment: ".container",
+          stop: function(){
+             $(this).draggable('option','revert','invalid');
+
+            //var value=$(this).html();
+            //console.log(value.split('<h1>').pop().split('</h1>')[0]);
+            // $(this).draggable('option','revert','invalid');
+          }
+        });
+
+        $( ".space" ).droppable({
+          classes: {
+            "ui-droppable-active": "ui-state-active",
+            "ui-droppable-hover": "ui-state-hover"
+          }
+        });
+        $( ".ball" ).droppable({
+          greedy:true,
+          drop: function(event,ui){
+            ui.draggable.draggable('option','revert',true);
+         }
+        });    
+    </script>
+    </body>
+</html>
